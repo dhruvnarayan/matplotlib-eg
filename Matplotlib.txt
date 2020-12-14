@@ -1,0 +1,64 @@
+Line Graphs-
+
+	from matplotlib import pyplot as plt
+
+	plt.plot(x,y,linestyle=,color=,marker=,label=) 	%All values after equals sign inside ''
+	plt.axis([Xmin,Xmax,Ymin,Ymax])					%Important - input argument is a list; Used for zooming in
+	plt.xlabel(), plt.ylabel(), plt.title()	    	%Strings are arguments to these functions	
+	plt.show()										%Display the line graph
+	
+	subplot(rows,columns,current)				
+	%To make a scatter plot -> plt.plot(x,y,linestyle=,color=,"o") 
+	plt.subplot_adjust(top=,bottom=,left=,right=,wspace=,hspace=)
+	
+	variable = range(integer value)					%How to use range function in python/ list of consecutive integers
+	legend = ["one","two"] 							%List of strings
+	plt.legend(legend,loc =)						%loc = location of legend(0-9 where 0-best/default)
+	
+	ax = plt.subplot()								%ax is axes object
+	ax.set_xticks([list of values sep by ,])							%
+	ax.set_xticklabels(list of strings sep by ,)
+	ax.set_yticks([0.10,0.25,0.5,0.75])
+	ax.set_yticklabels(['10%','25%','50%','75%'])
+	
+	y_lower = [i- 0.1*i for i in y]					%For errors in line graph		
+	y_upper = [i+ 0.1*i for i in y]
+	plt.fill_between(x,y_lower,y_upper,alpha=0.2)	%Alpha is for opacity of shaded region
+	plt.plot(x,y)
+	
+	plt.close('all') 								%close all open figures
+	plt.figure() | plt.figure(figsize=(width, height))
+	eg. plt.figure(figsize=(7,3))
+		plt.plot(years,power_generated)
+		plt.savefig('power_generated.png')
+		
+		
+Bar Graphs-
+	
+	plt.bar(x_values,y_values)						%Subplot, axis,labels,legend,title,ticks commands remain the same
+	[t*element + w*n for element in range(d)]		%Code for generating a list from a formula/ List comprehension - Side by side graphs
+													%Define values for n-which dataset, t-total no. of datasets, d- Total bars, w- Width of each bar
+	middle_x = [(a+b)/2.0 for a,b in zip(school_a_x,school_b_x)]	%Middle point for ticks in side by side bar graphs
+	
+	plt.bar(range(len(drinks)),sales1,label='Location 1')
+	plt.bar(range(len(drinks)),sales2,bottom=sales1,label='Location 2') %Use Bottom keyword for stacked bar graphs
+	%For more than 2 stacked bars, use numpy arrays-
+	c_bottom = np.add(As, Bs)
+	d_bottom = np.add(c_bottom, Cs)
+	f_bottom = np.add(d_bottom, Ds)
+	plt.bar(x,y,yerr=,capsize=) 					%Error graphs and capsize
+	
+	
+	
+Pie Charts - 
+	plt.pie(dataset)
+	plt.axis('equal')
+	plt.pie(budget_data, labels=budget_categories,autopct='')	%Add labels to each sector, percentage='%0.1f%%' or '%d%%' or '%0.2f')
+	
+	
+Histogram-	
+	plt.hist(dataset, range=(66,69), bins=40)		%Range optional but defines limit on x-axis, default bins=10
+	plt.hist(dataset2, range=, bins=,alpha=0.0-1.0,normed='True',histype='step') %Comparing 2 datasets,alpha for opacity,normed for normalizing
+																				 %Histtype = step for step figure. linewidth=2 to plot thicker lines
+	
+
